@@ -52,7 +52,7 @@ private OkHttpClient.Builder okHttpClientBuilder = new OkHttpClient.Builder();
     }
 
     public void getCommentApi(String postId,PostCallback callback){
-        Call<List<Comments>> call = service.getComments("");
+        Call<List<Comments>> call = service.getComments(postId);
         call.enqueue(new Callback<List<Comments>>() {
             @Override
             public void onResponse(Call<List<Comments>> call, Response<List<Comments>> response) {

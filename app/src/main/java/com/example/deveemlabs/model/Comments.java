@@ -20,6 +20,14 @@ public class Comments {
     @Expose
     private String body;
 
+    public Comments(int postId, int id, String name, String email, String body) {
+        this.postId = id;
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.body = body;
+    }
+
     public Integer getPostId() {
         return postId;
     }

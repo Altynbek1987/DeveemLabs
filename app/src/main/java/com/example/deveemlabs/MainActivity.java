@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements ServiceApi.PostCa
             @Override
             public void itemClick(int position) {
                 Intent intent = new Intent(MainActivity.this,CommentActivity.class);
-                intent.putExtra(CommentActivity.KEY, postList.get(position).getId());
+                intent.putExtra(CommentActivity.KEY, String.valueOf(postList.get(position).getId()));
                 startActivityForResult(intent,MAIN_CODE);
             }
         });

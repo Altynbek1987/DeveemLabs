@@ -11,6 +11,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -25,28 +26,25 @@ import com.example.deveemlabs.model.Post;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CommentActivity extends AppCompatActivity implements ServiceApi.PostCallback{
+public class CommentActivity extends AppCompatActivity implements ServiceApi.PostCallback, ExampleDialog.ExampleDialogListener {
     public static final String KEY = "key";
     private RecyclerView commentRecycler;
     private CommentAdapter commentAdapter;
-    private List<Comments> commentsList;
+    private List<Comments> commentsList = new ArrayList<>();
     private String comment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_comment);
-        //Intent intent = getIntent();
-        //comment = intent.getStringExtra(KEY);
+        createRecyclerView();
         if (getIntent() != null){
-            String postId = getIntent().getStringExtra("postId");
-            App.serviceApi.getCommentApi(String.valueOf(postId) ,this);
-            App.serviceApi.getPostApi(this);
+            String postId = getIntent().getStringExtra(KEY);
+            App.serviceApi.getCommentApi(postId ,this);
         }
     }
     private void createRecyclerView(){
         commentRecycler = findViewById(R.id.recyclerViewComment);
-        commentsList = new ArrayList<>();
         commentAdapter = new CommentAdapter(commentsList);
         commentRecycler.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.HORIZONTAL));
         commentRecycler.setAdapter(commentAdapter);
@@ -74,10 +72,8 @@ public class CommentActivity extends AppCompatActivity implements ServiceApi.Pos
         exampleDialog.show(getSupportFragmentManager(),"example dialog");
     }
 
-
     @Override
     public void onSuccess(List<Post> post) {
-        //commentsList.addAll(post);
 
     }
 
@@ -88,9 +84,14 @@ public class CommentActivity extends AppCompatActivity implements ServiceApi.Pos
 
     @Override
     public void onResponse(List<Comments> body) {
-        commentsList = body;
-        createRecyclerView();
+        commentsList.addAll(body);
+        commentAdapter.notifyDataSetChanged();
+    }
 
-
+    @Override
+    public void applyTexts(Comments comments) {
+        commentsList.add(comments);
+        commentAdapter.notifyDataSetChanged();
+        commentRecycler.smoothScrollToPosition(commentsList.size() - 1);
     }
 }
