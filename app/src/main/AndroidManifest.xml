@@ -14,8 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DeveemLabs"
         android:usesCleartextTraffic="true">
-        <activity android:name=".CommentActivity"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".comment.CommentActivity"></activity>
+        <activity android:name=".main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

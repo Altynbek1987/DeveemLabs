@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/commentBack"
     android:orientation="vertical">
     <androidx.cardview.widget.CardView
         android:layout_margin="10dp"
@@ -15,17 +16,22 @@
     <TextView
         android:id="@+id/tv_name"
         android:layout_width="match_parent"
+        android:textStyle="bold"
+        android:textSize="18sp"
         android:layout_height="wrap_content"
         android:hint="Name" />
 
     <TextView
         android:id="@+id/tv_email"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Email" />
 
     <TextView
         android:id="@+id/tv_comment"
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Comment" />

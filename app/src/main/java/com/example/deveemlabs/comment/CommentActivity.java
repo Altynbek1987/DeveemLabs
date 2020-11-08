@@ -1,23 +1,18 @@
-package com.example.deveemlabs;
+package com.example.deveemlabs.comment;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.DialogFragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.AttributeSet;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Switch;
 
+import com.example.deveemlabs.App;
+import com.example.deveemlabs.dialog.ExampleDialog;
+import com.example.deveemlabs.R;
 import com.example.deveemlabs.adapter.CommentAdapter;
 import com.example.deveemlabs.data.service.ServiceApi;
 import com.example.deveemlabs.model.Comments;

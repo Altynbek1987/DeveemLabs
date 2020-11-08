@@ -4,10 +4,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.deveemlabs.R;
 import com.example.deveemlabs.interfaces.OnItemClickListener;
 import com.example.deveemlabs.model.Post;
@@ -60,16 +58,11 @@ public class AdapterMainActivity extends RecyclerView.Adapter<AdapterMainActivit
             });
             textTitle = itemView.findViewById(R.id.tv_title);
             textBody = itemView.findViewById(R.id.tv_body);
-
         }
 
         public void onBind(Post post) {
             textTitle.setText(post.getTitle());
             textBody.setText(post.getBody());
-
-
-
-
         }
     }
 }
