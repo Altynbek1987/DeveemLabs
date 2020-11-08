@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.deveemlabs.R;
 import com.example.deveemlabs.interfaces.OnItemClickListener;
 import com.example.deveemlabs.model.Post;
-
 import java.util.List;
 
 public class AdapterMainActivity extends RecyclerView.Adapter<AdapterMainActivity.ViewHolder>{

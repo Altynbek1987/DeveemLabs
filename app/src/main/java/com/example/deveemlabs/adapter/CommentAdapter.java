@@ -4,12 +4,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.deveemlabs.R;
-import com.example.deveemlabs.interfaces.OnItemClickListener;
 import com.example.deveemlabs.model.Comments;
 
 import java.util.List;
